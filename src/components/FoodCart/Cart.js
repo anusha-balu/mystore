@@ -4,7 +4,6 @@ import Modal from "../FoodLayout/Modal";
 import CartContext from "../../context/cart_context";
 import CartItem from "./CartItem";
 import CheckoutForm from "./CheckoutForm";
-
 export default function Cart(props) {
   const ctx = useContext(CartContext);
   const [isCheckout, setIsCheckout] = useState(false);
@@ -15,6 +14,7 @@ export default function Cart(props) {
   const onRemove = id => {
     ctx.removeItem(id);
   };
+  const onChange = () => {};
   const onAdd = item => {
     console.log("item", item);
     ctx.addItem(item);
