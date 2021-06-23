@@ -1,0 +1,14 @@
+.layout-container {
+    background-color: #ffd91c;
+    /* background-color: #ffffff; */
+
+    background-repeat: round;
+    height: 93vh;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 79vw;
+    position: relative;
+    border-radius: 10px
+}

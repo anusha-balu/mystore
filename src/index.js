@@ -1,14 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./containers/App";
+import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter as Router } from "react-router-dom";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { theme } from "./theme";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  // <React.StrictMode>
+  //   <Router>
+  //     <ThemeProvider theme={theme}>
+  //     </ThemeProvider>
+  //   </Router>
+  // </React.StrictMode>
+  <App />,
+
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
