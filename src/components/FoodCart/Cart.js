@@ -14,7 +14,7 @@ export default function Cart(props) {
   const onRemove = id => {
     ctx.removeItem(id);
   };
-  const onChange = () => {};
+
   const onAdd = item => {
     console.log("item", item);
     ctx.addItem(item);

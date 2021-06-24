@@ -36,6 +36,7 @@ import Tasks from "../components/Task/Tasks";
 import useHttp from "../hooks/use-http";
 import SimpleInput from "../components/SimpleInput";
 import BasicForm from "../components/BasicForm";
+import Counter from "../components/Counter";
 const DUMMMY_EXPENSES = [
   {
     id: "e1",
@@ -389,6 +390,7 @@ const App = props => {
 
           <main>
             {switchUsers && <UserFinder></UserFinder>}
+            <Counter />
             {!switchUsers && (
               <Meals
                 vegan={vegan}
@@ -399,7 +401,7 @@ const App = props => {
           </main>
         </CartProvider>
 
-        {!expenseapp && (
+        {expenseapp && (
           <div>
             <ForwardCounter></ForwardCounter>
             <BackwardCounter></BackwardCounter>
