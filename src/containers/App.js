@@ -37,6 +37,8 @@ import useHttp from "../hooks/use-http";
 import SimpleInput from "../components/SimpleInput";
 import BasicForm from "../components/BasicForm";
 import Counter from "../components/Counter";
+import CounterHeader from "../components/CounterHeader";
+import Auth from "../components/Auth";
 const DUMMMY_EXPENSES = [
   {
     id: "e1",
@@ -381,27 +383,32 @@ const App = props => {
           </div>
         )}
 
-        <CartProvider>
-          {showCart && <Cart showPageHandler={showPageHandler}></Cart>}
-          <Header
-            showCartHandler={showCartHandler}
-            switchUsersHandler={switchUsersHandler}
-          ></Header>
+        {!expenseapp && (
+          <CartProvider>
+            {showCart && <Cart showPageHandler={showPageHandler}></Cart>}
+            <Header
+              showCartHandler={showCartHandler}
+              switchUsersHandler={switchUsersHandler}
+            ></Header>
 
-          <main>
-            {switchUsers && <UserFinder></UserFinder>}
-            <Counter />
-            {!switchUsers && (
-              <Meals
-                vegan={vegan}
-                showVegan={showVegan}
-                foodTypeSelectionHandler={foodTypeSelectionHandler}
-              ></Meals>
-            )}
-          </main>
-        </CartProvider>
+            <main>
+              {switchUsers && <UserFinder></UserFinder>}
+              {!switchUsers && (
+                <Meals
+                  vegan={vegan}
+                  showVegan={showVegan}
+                  foodTypeSelectionHandler={foodTypeSelectionHandler}
+                ></Meals>
+              )}
+            </main>
+          </CartProvider>
+        )}
 
-        {expenseapp && (
+        <CounterHeader />
+        <Auth />
+        <Counter />
+
+        {!expenseapp && (
           <div>
             <ForwardCounter></ForwardCounter>
             <BackwardCounter></BackwardCounter>

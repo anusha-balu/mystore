@@ -1,5 +1,4 @@
 import { createStore } from "redux";
-import { stat } from "fs";
 
 const initialState = { counter: 0, showCounter: true };
 //redux wont  merge ur changes with existing state instead takes what u return and replaces exisitng state
@@ -26,6 +25,7 @@ const counterReducer = (state = initialState, action) => {
     };
   return state;
 };
-const store = createStore(counterReducer); // this now creates our redux store
+// const store = createStore(counterReducer); // this now creates our redux store
+//we can pass only one reducer to createStore
 
-export default store;
+// export default store;
