@@ -9,6 +9,7 @@ import { theme } from "./theme";
 import { Provider } from "react-redux";
 // import store from "./store/index
 import store from "./store/indexreduxtoolkit";
+import advancedStore from "./advancedstore/index";
 
 ReactDOM.render(
   // <React.StrictMode>
@@ -17,7 +18,8 @@ ReactDOM.render(
   //     </ThemeProvider>
   //   </Router>
   // </React.StrictMode>
-  <Provider store={store}>
+  // <Provider store={store}>
+  <Provider store={advancedStore}>
     <App />
   </Provider>,
 

@@ -39,6 +39,11 @@ import BasicForm from "../components/BasicForm";
 import Counter from "../components/Counter";
 import CounterHeader from "../components/CounterHeader";
 import Auth from "../components/Auth";
+import { useSelector } from "react-redux";
+import UserProfile from "../components/UserProfile";
+import Layout from "../components/advancedredux/Layout/Layout";
+import NewCart from "../components/advancedredux/Cart/Cart";
+import Products from "../components/advancedredux/Shop/Products";
 const DUMMMY_EXPENSES = [
   {
     id: "e1",
@@ -94,6 +99,10 @@ const App = props => {
   const [error, setError] = useState(null);
   const [added, setAdded] = useState(false);
   const [tasks, setTasks] = useState([]);
+  // const isAuth = useSelector(state => state.auth.isAuthenticated);
+  //commented since commented store in index.js
+  //import store from "./store/indexreduxtoolkit";
+  const cartIsVisible = useSelector(state => state.ui.cartIsVisible);
 
   const { isLoadingHttp, errorHttp, sendRequest: fetchTask } = useHttp();
   //if you are passing url ie requestConfig as parameter to useHttp, it is send as props
@@ -404,9 +413,18 @@ const App = props => {
           </CartProvider>
         )}
 
-        <CounterHeader />
-        <Auth />
-        <Counter />
+        {!expenseapp && (
+          <div>
+            <CounterHeader />
+            {/* {!isAuth && <Auth />} */}
+            {/* {isAuth && <UserProfile />} */}
+            <Counter />
+          </div>
+        )}
+        <Layout>
+          {cartIsVisible && <NewCart></NewCart>}
+          <Products></Products>
+        </Layout>
 
         {!expenseapp && (
           <div>
